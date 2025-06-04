@@ -11,7 +11,7 @@ cd laravel-vue-routing
 composer install
 
 cp .env.example .env  
-./vendor/bin/sail artisan key:generate
+php artisan key:generate
 
 ./vendor/bin/sail up -d
 
@@ -21,3 +21,6 @@ cp .env.example .env
 ### Доступ к приложению
 
     http://localhost:8000
+
+
+./vendor/bin/sail down *(остановка приложения)*
