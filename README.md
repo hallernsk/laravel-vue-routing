@@ -13,8 +13,6 @@ composer install
 cp .env.example .env  
 ./vendor/bin/sail artisan key:generate
 
-php artisan sail:install    *(если нужно)*
-
 ./vendor/bin/sail up -d
 
 ./vendor/bin/sail npm install  
