@@ -5,7 +5,7 @@ import SomePage from "../pages/SomePage.vue";
 const routes = [
     {
         path: '/',
-        component: Home
+        component: Home // это статическая загрузка компонента (сразу при первой загрузке)
     },
     {
         path: '/about',
