@@ -6,7 +6,7 @@
                 <router-link class="nav-link" aria-current="page" to="/">Главная</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link" to="/some-page">Страница 1</router-link>
+                <router-link class="nav-link" to="/products">Товары</router-link>
             </li>
             <li class="nav-item">
                 <router-link class="nav-link" to="/about">О нас</router-link>

@@ -1,6 +1,6 @@
 import About from "../pages/About.vue";
 import Home from "../pages/Home.vue";
-import SomePage from "../pages/SomePage.vue";
+import Products from "../pages/Products.vue";
 
 const routes = [
     {
@@ -12,8 +12,8 @@ const routes = [
         component: About
     },
     {
-        path: '/some-page',
-        component: SomePage
+        path: '/products',
+        component: Products
     }
 ]
 
