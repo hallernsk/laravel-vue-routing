@@ -1,23 +1,16 @@
 <template>
-    <header class="header">
-        <ul class="nav nav-pills">
-    
-            <li class="nav-item">
-                <router-link class="nav-link" aria-current="page" to="/">Главная</router-link>
-            </li>
-            <li class="nav-item">
-                <router-link class="nav-link" to="/products">Товары</router-link>
-            </li>
-            <li class="nav-item">
-                <router-link class="nav-link" to="/about">О нас</router-link>
-            </li>
-    
-        </ul>
-    
-    </header>
-    
-  
-    </template> 
+  <header class="header">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <router-link class="nav-link" aria-current="page" to="/">Главная</router-link>
+      </li>
+
+      <li class="nav-item">
+        <router-link class="nav-link" to="/products">Товары</router-link>
+      </li>    
+    </ul>
+  </header>   
+</template>
     
     <script>
     import { defineComponent } from "vue";
