@@ -3,7 +3,7 @@
     <h2>Список товаров</h2>
     <ul>
       <li v-for="product in products" :key="product.id">
-        {{ product.name }} — {{ product.price }} ₽
+        {{ product.name }} — {{ product.description }} - {{ product.price }} ₽
       </li>
     </ul>
   </div>
