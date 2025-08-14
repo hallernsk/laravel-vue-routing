@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        return Product::all();
+        return Inertia::render('ProductList', [
+            'products' => Product::all()
+        ]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('ProductCreate');
     }
 
     public function store(Request $request)
@@ -20,14 +28,23 @@ class ProductController extends Controller
             'description' => 'nullable|string'
         ]);
 
-        $product = Product::create($data);
+        Product::create($data);
 
-        return response()->json($product, 201);
+        return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
 
     public function show(Product $product)
     {
-        return $product;
+        return Inertia::render('ProductShow', [
+            'product' => $product
+        ]);
+    }
+
+    public function edit(Product $product)
+    {
+        return Inertia::render('ProductEdit', [
+            'product' => $product
+        ]);
     }
 
     public function update(Request $request, Product $product)
@@ -40,13 +57,13 @@ class ProductController extends Controller
 
         $product->update($data);
 
-        return response()->json($product);
+        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
 
     public function destroy(Product $product)
     {
         $product->delete();
 
-        return response()->json(null, 204);
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 }
