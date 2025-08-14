@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>Edit Product</h1>
+        <br>
         <form @submit.prevent="updateProduct">
             <input v-model="form.name" placeholder="Name" required />
             <input v-model="form.price" placeholder="Price" type="number" required />
