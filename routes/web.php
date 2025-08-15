@@ -22,6 +22,7 @@ use Inertia\Inertia;
 // Для работы с Inertia
 // Главная страница
 Route::get('/', function () {
+    // dd('home');
     return Inertia::render('Home');
 })->name('home');
 

@@ -1,33 +1,38 @@
 <template>
     <div>
         <h1>Create Product</h1>
-        <form @submit.prevent="createProduct">
+
+        <form @submit.prevent="submit">
             <input v-model="form.name" placeholder="Name" required />
             <input v-model="form.price" placeholder="Price" type="number" required />
             <textarea v-model="form.description" placeholder="Description"></textarea>
-            <button type="submit" class="create-btn">Save</button>
+            <button type="submit" class="create-btn" :disabled="form.processing">
+                Save
+            </button>
         </form>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+import { useForm, Link } from '@inertiajs/vue3'
 
 export default {
-    data() {
-        return {
-            form: { name: '', price: '', description: '' }
+    setup() {
+        const form = useForm({
+            name: '',
+            price: '',
+            description: ''
+        })
+
+        function submit() {
+            form.post('/products')
         }
-    },
-    methods: {
-        createProduct() {
-            axios.post('/api/products', this.form).then(() => {
-                this.$router.push('/products');
-            });
-        }
+
+        return { form, submit }
     }
 }
 </script>
+
 
 <style scoped>
 form {

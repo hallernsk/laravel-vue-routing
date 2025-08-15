@@ -1,13 +1,18 @@
+<script setup>
+import { Link } from '@inertiajs/vue3'
+</script>
+
 <template>
-    <div>
-        <h1>Home page</h1>
-        <br><br>
-            <p> resources/views/app.blade.php - основной (и единственный) шаблон Blade.</p>
-            <p> В нем подключается resources/js/app.js - точка входа Vue, где создается приложение Vue,</p>
-            <p> корневой компонент которого(resources/js/src/App.vue) монтируется в DOM-элемент с id="app" (в app.blade.php),</p>
-            <p> а также подключается Vue Router.</p>
+    <div style="padding: 20px; font-family: sans-serif;">
+        <h1 style="margin-bottom: 10px;">Добро пожаловать!</h1>
+        <p style="margin-bottom: 20px;">
+            Это главная страница. Вы можете перейти к списку товаров по ссылке ниже.
+        </p>
+        <Link 
+            href="/products" 
+            style="padding: 10px 15px; background: #3490dc; color: white; border-radius: 5px; text-decoration: none;"
+        >
+            Перейти к товарам
+        </Link>
     </div>
 </template>
-
-<style lang="less" scoped>
-</style>

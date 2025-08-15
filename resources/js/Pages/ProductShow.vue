@@ -1,24 +1,25 @@
 <template>
     <div>
-        <h1>{{ product.name }}</h1>
-        <p>{{ product.description }}</p>
-        <p>Price: {{ product.price }} ₽</p>
-        <router-link to="/products">Back</router-link>
+        <h1>Product Details</h1>
+        <div v-if="product">
+            <p><strong>Name:</strong> {{ product.name }}</p>
+            <p><strong>Price:</strong> {{ product.price }}</p>
+            <p><strong>Description:</strong> {{ product.description }}</p>
+        </div>
+        <!-- <Link :href="route('products.index')" class="back-btn">Back to list</Link> -->
+                     <Link href="/products" style="color: #3490dc; text-decoration: none;">← Назад к списку</Link>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+import { Link } from '@inertiajs/vue3';
 
 export default {
-    props: ['id'],
-    data() {
-        return { product: {} }
+    props: {
+        product: Object
     },
-    mounted() {
-        axios.get(`/api/products/${this.id}`).then(res => {
-            this.product = res.data;
-        });
+    components: {
+        Link
     }
 }
 </script>
